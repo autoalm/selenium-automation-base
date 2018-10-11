@@ -3,6 +3,7 @@ package ro.cbn.automation.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class WebDriverOperations {
         webDriver.navigate().to(url);
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return webDriver.getTitle();
     }
 
@@ -40,5 +41,10 @@ public class WebDriverOperations {
         return webDriverWait
                 .until(ExpectedConditions.visibilityOfElementLocated(titlePage))
                 .getText();
+    }
+
+    public void selectOptionFromList(By dropDownElementLocator, String optionToSet) {
+        Select dropdown = new Select(webDriver.findElement(dropDownElementLocator));
+        dropdown.selectByVisibleText(optionToSet);
     }
 }

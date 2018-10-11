@@ -1,4 +1,4 @@
 package ro.cbn.automation.pages;
 
-public class CautariSimplePage {
+public class CautariSimplePage extends CommonPage {
 }

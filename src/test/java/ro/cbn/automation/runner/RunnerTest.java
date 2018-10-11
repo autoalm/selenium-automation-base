@@ -11,8 +11,4 @@ import org.junit.runner.RunWith;
         glue = "ro.cbn.automation.steps",
         tags = "@test1")
 public class RunnerTest {
-
-    static {
-
-    }
 }

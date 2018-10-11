@@ -6,15 +6,13 @@ import ro.cbn.automation.exceptions.TestFrameworkException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.apache.commons.lang3.StringUtils.stripAccents;
-
 
 public class AutomationHelper {
     private static final Logger LOG = Logger.getLogger(AutomationHelper.class);
 
 
     public static Class<?> getPageClass(String pageName) {
-        String pageNameKey = stripAccents(pageName).toLowerCase();
+        String pageNameKey = pageName.toLowerCase().replace(" ", "");
         if (PAGE_CLASSES.containsKey(pageNameKey)) {
             return PAGE_CLASSES.get(pageNameKey);
         } else {
@@ -24,6 +22,7 @@ public class AutomationHelper {
 
     private static final Map<String, Class<?>> PAGE_CLASSES = new LinkedHashMap<String, Class<?>>() {{
         put("mainpage", ro.cbn.automation.pages.MainPage.class);
-        put("commonpage",ro.cbn.automation.pages.CommonPage.class);
+        put("commonpage", ro.cbn.automation.pages.CommonPage.class);
+        put("cautarisimplepage", ro.cbn.automation.pages.CautariSimplePage.class);
     }};
 }
